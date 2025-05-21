@@ -1,0 +1,15 @@
+# Backend
+condominioBackend/target/
+condominioBackend/.settings/
+condominioBackend/.classpath
+condominioBackend/.project
+
+# Frontend
+condominioFrontend/node_modules/
+condominioFrontend/.vscode/
+
+# Geral
+.DS_Store
+.idea/
+*.iml
+*.log
