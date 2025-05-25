@@ -1,0 +1,30 @@
+package com.condominio.controller;
+
+import com.condominio.model.Morador;
+import com.condominio.repository.MoradorRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+@RestController
+@RequestMapping("/api/auth")
+public class AuthController {
+    
+    @Autowired
+    private MoradorRepository moradorRepository;
+    
+    @PostMapping("/login")
+    public ResponseEntity<?> login(@RequestBody Morador morador) {
+        Morador moradorExistente = moradorRepository.findByNomeAndApartamentoAndBloco(
+            morador.getNome(),
+            morador.getApartamento(),
+            morador.getBloco()
+        );
+        
+        if (moradorExistente != null) {
+            return ResponseEntity.ok().body("Login bem-sucedido!");
+        } else {
+            return ResponseEntity.badRequest().body("Credenciais inválidas.");
+        }
+    }
+}

@@ -1,0 +1,42 @@
+package com.condominio.controller;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.condominio.model.Morador;
+import com.condominio.repository.MoradorRepository;
+
+@RestController
+@RequestMapping("/api/auth")
+public class AuthController {
+    
+    @Autowired
+    private MoradorRepository moradorRepository;
+    
+    @PostMapping("/login")
+    public ResponseEntity<?> login(@RequestBody Morador morador) {
+        Morador moradorExistente = moradorRepository.findByLoginAndSenha(
+            morador.getLogin(),
+            morador.getSenha()
+        );
+        
+        if (moradorExistente != null) {
+            // Retorna dados do morador (sem senha)
+            Map<String, String> response = new HashMap<>();
+            response.put("nome", moradorExistente.getNome());
+            response.put("apartamento", moradorExistente.getApartamento());
+            response.put("bloco", moradorExistente.getBloco());
+            response.put("contato", moradorExistente.getContato());
+            
+            return ResponseEntity.ok(response);
+        } else {
+            return ResponseEntity.status(401).body("Login ou senha inválidos.");
+        }
+    }

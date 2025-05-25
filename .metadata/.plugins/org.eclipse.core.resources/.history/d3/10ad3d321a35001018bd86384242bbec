@@ -1,0 +1,30 @@
+package com.condominio.controller;
+
+import com.condominio.model.Aviso;
+import com.condominio.repository.AvisoRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.time.LocalDate;
+import java.util.List;
+
+@RestController
+@RequestMapping("/api/avisos")
+@CrossOrigin(origins = "*")
+public class AvisoController {
+
+    @Autowired
+    private AvisoRepository avisoRepository;
+
+    @PostMapping
+    public ResponseEntity<Aviso> criarAviso(@RequestBody Aviso aviso) {
+        aviso.setData(LocalDate.now());
+        Aviso avisoSalvo = avisoRepository.save(aviso);
+        return ResponseEntity.ok(avisoSalvo);
+    }
+
+    @GetMapping
+    public List<Aviso> listarAvisos() {
+        return avisoRepository.findAllByOrderByDataDesc();
+    }
+}

@@ -1,15 +1,33 @@
-# Backend
-condominioBackend/target/
-condominioBackend/.settings/
-condominioBackend/.classpath
-condominioBackend/.project
+HELP.md
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
 
-# Frontend
-condominioFrontend/node_modules/
-condominioFrontend/.vscode/
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
 
-# Geral
-.DS_Store
-.idea/
+### IntelliJ IDEA ###
+.idea
+*.iws
 *.iml
-*.log
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### VS Code ###
+.vscode/
