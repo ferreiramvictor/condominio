@@ -14,6 +14,7 @@ public class Aviso {
     private String titulo;
     private String conteudo;
     private LocalDate data;
+    private String autor;
     
 
     // Getters e Setters
@@ -41,5 +42,12 @@ public class Aviso {
 	public void setData(LocalDate data) {
 		this.data = data;
 	}
+	public String getAutor() {
+		return autor;
+	}
+	public void setAutor(String autor) {
+		this.autor = autor;
+	}
+	
     
 }
