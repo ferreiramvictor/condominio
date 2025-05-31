@@ -52,4 +52,10 @@ public class VagaVisitanteController {
         return ResponseEntity.ok(Map.of(
             "mensagem", "Não há vagas disponíveis para seu apartamento nas próximas semanas"));
     }
+    
+    @GetMapping("/por-apartamento/{apartamento}")
+    public ResponseEntity<List<VagaVisitante>> getPorApartamento(@PathVariable String apartamento) {
+        List<VagaVisitante> vagas = vagaRepository.findByVaga1OrVaga2(apartamento, apartamento);
+        return ResponseEntity.ok(vagas);
+    }
 }
