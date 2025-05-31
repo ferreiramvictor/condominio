@@ -40,6 +40,17 @@ public class AuthController {
         }
     }
     
+    @PostMapping("/verificar-login")
+    public ResponseEntity<?> verificarLogin(@RequestBody Map<String, String> request) {
+        String login = request.get("login");
+        Morador moradorExistente = moradorRepository.findByLogin(login);
+        
+        Map<String, Boolean> response = new HashMap<>();
+        response.put("existe", moradorExistente != null);
+        
+        return ResponseEntity.ok(response);
+    }
+    
     @PostMapping("/cadastrar")
     public ResponseEntity<?> cadastrarMorador(@RequestBody Morador morador) {
         try {
