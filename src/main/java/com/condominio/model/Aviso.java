@@ -34,7 +34,7 @@ public class Aviso {
 		return mensagem;
 	}
 	public void setConteudo(String conteudo) {
-		this.mensagem = conteudo;
+		this.mensagem = mensagem;
 	}
 	public LocalDate getData() {
 		return data;
