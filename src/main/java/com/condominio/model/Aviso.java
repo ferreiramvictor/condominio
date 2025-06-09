@@ -12,7 +12,7 @@ public class Aviso {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String titulo;
-    private String conteudo;
+    private String mensagem;
     private LocalDate data;
     private String autor;
     
@@ -31,10 +31,10 @@ public class Aviso {
 		this.titulo = titulo;
 	}
 	public String getConteudo() {
-		return conteudo;
+		return mensagem;
 	}
 	public void setConteudo(String conteudo) {
-		this.conteudo = conteudo;
+		this.mensagem = conteudo;
 	}
 	public LocalDate getData() {
 		return data;
