@@ -30,10 +30,10 @@ public class Aviso {
 	public void setTitulo(String titulo) {
 		this.titulo = titulo;
 	}
-	public String getConteudo() {
+	public String getMensagem() {
 		return mensagem;
 	}
-	public void setConteudo(String conteudo) {
+	public void setMensagem(String conteudo) {
 		this.mensagem = mensagem;
 	}
 	public LocalDate getData() {

@@ -46,7 +46,7 @@ public class AvisoController {
         return avisoRepository.findById(id)
             .map(aviso -> {
                 aviso.setTitulo(avisoAtualizado.getTitulo());
-                aviso.setConteudo(avisoAtualizado.getConteudo());
+                aviso.setMensagem(avisoAtualizado.getMensagem());
                 Aviso avisoAtualizadoSalvo = avisoRepository.save(aviso);
                 return ResponseEntity.ok(avisoAtualizadoSalvo);
             })
