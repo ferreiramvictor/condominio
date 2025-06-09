@@ -33,7 +33,7 @@ public class Aviso {
 	public String getMensagem() {
 		return mensagem;
 	}
-	public void setMensagem(String conteudo) {
+	public void setMensagem(String mensagem) {
 		this.mensagem = mensagem;
 	}
 	public LocalDate getData() {
