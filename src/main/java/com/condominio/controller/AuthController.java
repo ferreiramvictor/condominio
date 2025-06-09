@@ -24,16 +24,23 @@ public class AuthController {
     @Autowired
     private MoradorRepository moradorRepository;
     
+ // Conteúdo para modificar em com/condominio/controller/AuthController.java
+
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody Morador morador) {
         Morador moradorExistente = moradorRepository.findByLoginAndSenha(morador.getLogin(), morador.getSenha());
         
         if (moradorExistente != null) {
-            Map<String, String> response = new HashMap<>();
+            // Use Map<String, Object> para permitir diferentes tipos de dados
+            Map<String, Object> response = new HashMap<>();
             response.put("nome", moradorExistente.getNome());
             response.put("apartamento", moradorExistente.getApartamento());
             response.put("bloco", moradorExistente.getBloco());
             response.put("contato", moradorExistente.getContato());
+            
+            // --- ALTERAÇÃO PRINCIPAL AQUI ---
+            response.put("isAdmin", moradorExistente.isAdmin()); // Adiciona o status de admin
+
             return ResponseEntity.ok(response);
         } else {
             return ResponseEntity.status(401).body("Login ou senha inválidos.");

@@ -17,6 +17,7 @@ public class Morador {
     private String apartamento; // Ex: "103"
     private String bloco; // Ex: "A"
     private String contato; // Note o nome do campo (contato)
+    private boolean isAdmin;
 
     // Construtor vazio (obrigatório para JPA)
     public Morador() {
@@ -30,6 +31,7 @@ public class Morador {
         this.apartamento = apartamento;
         this.bloco = bloco;
         this.contato = contato;
+        this.isAdmin = false;
     }
 
     // ===== GETTERS =====
@@ -57,11 +59,15 @@ public class Morador {
         return bloco;
     }
 
-    public String getContato() { // Getter correto (nome do método)
-        return contato; // Retorna o campo 'contato'
+    public String getContato() { 
+        return contato; 
+    }
+    
+    public boolean isAdmin() { 
+        return isAdmin;
     }
 
-    // ===== SETTERS ===== (todos corrigidos)
+    
     public void setId(Long id) {
         this.id = id;
     }
@@ -88,5 +94,9 @@ public class Morador {
 
     public void setContato(String contato) {
         this.contato = contato;
+    }
+    
+    public void setAdmin(boolean admin) { 
+        isAdmin = admin;
     }
 }
