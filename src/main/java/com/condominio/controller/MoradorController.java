@@ -14,7 +14,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/moradores")
-@CrossOrigin(origins = "https://edificiotexas.github.io")
+@CrossOrigin(origins = "*")
 public class MoradorController {
 
     @Autowired

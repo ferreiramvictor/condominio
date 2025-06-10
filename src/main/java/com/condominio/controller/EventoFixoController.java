@@ -10,7 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/eventos-fixos")
-@CrossOrigin(origins = "https://edificiotexas.github.io")
+@CrossOrigin(origins = "*")
 public class EventoFixoController {
 
     @Autowired

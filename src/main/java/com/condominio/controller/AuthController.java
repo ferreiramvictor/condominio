@@ -18,13 +18,12 @@ import com.condominio.repository.MoradorRepository;
 
 @RestController
 @RequestMapping("/api/auth")
-@CrossOrigin(origins = "https://edificiotexas.github.io") 
+@CrossOrigin(origins = "*") 
 public class AuthController {
     
     @Autowired
     private MoradorRepository moradorRepository;
     
- // Conteúdo para modificar em com/condominio/controller/AuthController.java
 
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody Morador morador) {
@@ -62,7 +61,7 @@ public class AuthController {
             // Gera o login automaticamente (apartamento + bloco)
             String login = morador.getApartamento() + morador.getBloco();
             morador.setLogin(login);
-
+            
             // Valida se o login já existe
             if (moradorRepository.findByLogin(login) != null) {
                 return ResponseEntity.badRequest().body("Já existe um morador com este apartamento/bloco.");
