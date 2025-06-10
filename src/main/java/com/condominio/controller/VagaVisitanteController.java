@@ -12,7 +12,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/api/vagas-visitantes")
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "https://edificiotexas.github.io")
 public class VagaVisitanteController {
     
     @Autowired

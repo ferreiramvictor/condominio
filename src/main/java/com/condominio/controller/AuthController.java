@@ -18,7 +18,7 @@ import com.condominio.repository.MoradorRepository;
 
 @RestController
 @RequestMapping("/api/auth")
-@CrossOrigin(origins = "https://ferreiramvictor.github.io") 
+@CrossOrigin(origins = "https://edificiotexas.github.io") 
 public class AuthController {
     
     @Autowired

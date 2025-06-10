@@ -21,7 +21,7 @@ import com.condominio.repository.AvisoRepository;
 
 @RestController
 @RequestMapping("/api/avisos")
-@CrossOrigin(origins = "https://ferreiramvictor.github.io")
+@CrossOrigin(origins = "https://edificiotexas.github.io")
 public class AvisoController {
 
     @Autowired

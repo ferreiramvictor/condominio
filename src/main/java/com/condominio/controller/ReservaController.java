@@ -19,7 +19,7 @@ import com.condominio.repository.ReservaRepository;
 
 @RestController
 @RequestMapping("/api/reservas")
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "https://edificiotexas.github.io")
 public class ReservaController {
 
     @Autowired
