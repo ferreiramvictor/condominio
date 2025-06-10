@@ -4,7 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
 public class Aviso {
@@ -13,7 +13,7 @@ public class Aviso {
     private Long id;
     private String titulo;
     private String mensagem;
-    private LocalDate data;
+    private LocalDateTime data;
     private String autor;
     
 
@@ -36,10 +36,10 @@ public class Aviso {
 	public void setMensagem(String mensagem) {
 		this.mensagem = mensagem;
 	}
-	public LocalDate getData() {
+	public LocalDateTime getData() {
 		return data;
 	}
-	public void setData(LocalDate data) {
+	public void setData(LocalDateTime data) {
 		this.data = data;
 	}
 	public String getAutor() {

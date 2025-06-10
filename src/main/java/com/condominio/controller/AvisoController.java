@@ -1,6 +1,6 @@
 package com.condominio.controller;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +28,7 @@ public class AvisoController {
 
     @PostMapping
     public ResponseEntity<Aviso> criarAviso(@RequestBody Aviso aviso) {
-        aviso.setData(LocalDate.now());
+        aviso.setData(LocalDateTime.now());
         Aviso avisoSalvo = avisoRepository.save(aviso);
         return ResponseEntity.ok(avisoSalvo);
     }
