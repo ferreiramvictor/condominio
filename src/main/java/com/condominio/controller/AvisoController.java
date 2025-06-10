@@ -1,6 +1,7 @@
 package com.condominio.controller;
 
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +21,7 @@ import com.condominio.repository.AvisoRepository;
 
 @RestController
 @RequestMapping("/api/avisos")
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "https://ferreiramvictor.github.io")
 public class AvisoController {
 
     @Autowired
@@ -28,7 +29,7 @@ public class AvisoController {
 
     @PostMapping
     public ResponseEntity<Aviso> criarAviso(@RequestBody Aviso aviso) {
-        aviso.setData(LocalDateTime.now());
+        aviso.setData(LocalDateTime.now(ZoneId.of("America/Sao_Paulo")));
         Aviso avisoSalvo = avisoRepository.save(aviso);
         return ResponseEntity.ok(avisoSalvo);
     }
