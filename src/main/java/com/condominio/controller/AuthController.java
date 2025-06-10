@@ -18,7 +18,7 @@ import com.condominio.repository.MoradorRepository;
 
 @RestController
 @RequestMapping("/api/auth")
-@CrossOrigin(origins = "*") // Permite todas as origens (apenas para desenvolvimento!)
+@CrossOrigin(origins = "https://ferreiramvictor.github.io") 
 public class AuthController {
     
     @Autowired
@@ -31,16 +31,14 @@ public class AuthController {
         Morador moradorExistente = moradorRepository.findByLoginAndSenha(morador.getLogin(), morador.getSenha());
         
         if (moradorExistente != null) {
-            // Use Map<String, Object> para permitir diferentes tipos de dados
+            
             Map<String, Object> response = new HashMap<>();
             response.put("nome", moradorExistente.getNome());
             response.put("apartamento", moradorExistente.getApartamento());
             response.put("bloco", moradorExistente.getBloco());
             response.put("contato", moradorExistente.getContato());
+            response.put("isAdmin", moradorExistente.isAdmin()); 
             
-            // --- ALTERAÇÃO PRINCIPAL AQUI ---
-            response.put("isAdmin", moradorExistente.isAdmin()); // Adiciona o status de admin
-
             return ResponseEntity.ok(response);
         } else {
             return ResponseEntity.status(401).body("Login ou senha inválidos.");
