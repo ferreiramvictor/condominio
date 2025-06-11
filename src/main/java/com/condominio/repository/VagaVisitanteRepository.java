@@ -11,7 +11,8 @@ public interface VagaVisitanteRepository extends JpaRepository<VagaVisitante, Lo
     List<VagaVisitante> findByDataInicioBetween(LocalDate inicio, LocalDate fim);
     VagaVisitante findBySemana(int semana);
     
-    // Método 1: Usando convenção de nomes do Spring Data JPA
     List<VagaVisitante> findByVaga1OrVaga2(String vaga1, String vaga2);
+    
+    List<VagaVisitante> findAllByOrderByDataInicioAsc();
    
 }

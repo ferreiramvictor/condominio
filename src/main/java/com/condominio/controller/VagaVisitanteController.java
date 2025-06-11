@@ -58,4 +58,10 @@ public class VagaVisitanteController {
         List<VagaVisitante> vagas = vagaRepository.findByVaga1OrVaga2(apartamento, apartamento);
         return ResponseEntity.ok(vagas);
     }
+    
+    @GetMapping
+    public ResponseEntity<List<VagaVisitante>> listarTodasVagas() {
+        List<VagaVisitante> vagas = vagaRepository.findAllByOrderByDataInicioAsc();
+        return ResponseEntity.ok(vagas);
+    }
 }
